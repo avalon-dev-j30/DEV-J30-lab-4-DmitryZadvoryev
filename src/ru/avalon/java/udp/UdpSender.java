@@ -3,11 +3,12 @@ package ru.avalon.java.udp;
 import java.io.IOException;
 import java.net.DatagramPacket;
 import java.net.DatagramSocket;
+import java.net.InetSocketAddress;
 import java.net.SocketAddress;
 
 /**
- * Упражнение, направленное на выработку умений, связанных
- * с отправкой сообщений средствами протокола UDP.
+ * Упражнение, направленное на выработку умений, связанных с отправкой сообщений
+ * средствами протокола UDP.
  *
  * @author Daniel Alpatov
  */
@@ -36,10 +37,7 @@ public final class UdpSender {
      * @return текстовое сообщение.
      */
     private static String prepareMessage() {
-        /*
-         * TODO Реализовать метод prepareMessage класса UdpSender
-         */
-        throw new UnsupportedOperationException("Not implemented yet!");
+        return "Ping";
     }
 
     /**
@@ -48,10 +46,7 @@ public final class UdpSender {
      * @return адрес конечной точки.
      */
     private static SocketAddress prepareAddress() {
-        /*
-         * TODO Реализовать метод prepareAddress класса UdpSender
-         */
-        throw new UnsupportedOperationException("Not implemented yet!");
+        return new InetSocketAddress("localhost", 8080);
     }
 
     /**
@@ -61,10 +56,7 @@ public final class UdpSender {
      * @throws IOException
      */
     private static DatagramSocket createSocket() throws IOException {
-        /*
-         * TODO Реализовать метод createSocket класса UdpSender
-         */
-        throw new UnsupportedOperationException("Not implemented yet!");
+        return new DatagramSocket();
     }
 
     /**
@@ -75,10 +67,7 @@ public final class UdpSender {
      * @return экземпляр типа {@link DatagramPacket}.
      */
     private static DatagramPacket pack(String message) {
-        /*
-         * TODO Реализовать метод pack класса UdpSender
-         */
-        throw new UnsupportedOperationException("Not implemented yet!");
+        return  new DatagramPacket(message.getBytes(), message.getBytes().length);
     }
 
 }

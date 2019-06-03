@@ -1,12 +1,14 @@
 package ru.avalon.java.tcp;
 
 import java.io.IOException;
+import java.io.OutputStream;
+import java.io.PrintWriter;
+import java.net.InetSocketAddress;
 import java.net.Socket;
 import java.net.SocketAddress;
 
 /**
- * Упражнение на выработку базовых умений использования
- * протокола TCP.
+ * Упражнение на выработку базовых умений использования протокола TCP.
  *
  * @author Daniel Alpatov
  */
@@ -31,10 +33,7 @@ public final class TcpSender {
      * @return текстовое сообщение.
      */
     private static String prepareMessage() {
-        /*
-         * TODO Реализовать метод prepareMessage класса TcpSender
-         */
-        throw new UnsupportedOperationException("Not implemented yet!");
+        return "Ping";
     }
 
     /**
@@ -43,10 +42,7 @@ public final class TcpSender {
      * @return экземпля типа {@link SocketAddress}
      */
     private static SocketAddress prepareAddress() {
-        /*
-         * TODO Реализовать метод prepareAddress класса TcpSender
-         */
-        throw new UnsupportedOperationException("Not implemented yet!");
+        return new InetSocketAddress("localhost", 8080);
     }
 
     /**
@@ -60,10 +56,10 @@ public final class TcpSender {
      * @throws IOException
      */
     private static Socket connect(SocketAddress address) throws IOException {
-        /*
-         * TODO Реализовать метод connect класса TcpSender
-         */
-        throw new UnsupportedOperationException("Not implemented yet!");
+        try (Socket socket = new Socket()) {
+            socket.connect(address);
+            return socket;
+        }
     }
 
     /**
@@ -75,10 +71,10 @@ public final class TcpSender {
      * @throws IOException
      */
     private static void send(Socket socket, String message) throws IOException {
-        /*
-         * TODO Реализовать метод send класса TcpSender
-         */
-        throw new UnsupportedOperationException("Not implemented yet!");
+        OutputStream stream = socket.getOutputStream();
+        PrintWriter writer = new PrintWriter(stream);
+        writer.println(message);
+        writer.flush();
     }
 
 }
